@@ -1,5 +1,6 @@
 New-Item -ItemType "directory" -Path "c:\artifacts"
 $url = "https://2.na.dl.wireshark.org/win64/Wireshark-win64-3.0.5.exe"
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 (New-Object System.Net.WebClient).DownloadFile($url, "c:\artifacts\Wireshark-win64-3.0.5.exe")
 
 # $Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName $env:COMPUTERNAME
